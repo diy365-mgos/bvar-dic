@@ -1,4 +1,4 @@
-# bVariant Dictionary
+# bVariant Dictionary Library
 ## Overview
 This Mongoose OS library allows you to create and manipulate dictionaries adding or removing keys, easily, like you do in javascript. It extends the [bVariant library](https://github.com/diy365-mgos/bvar).
 ## Features
