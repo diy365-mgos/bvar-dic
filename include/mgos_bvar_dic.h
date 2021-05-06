@@ -46,8 +46,6 @@ bool mgos_bvar_has_key(mgos_bvarc_t dic, const char *key_name);
 mgos_bvar_enum_t mgos_bvar_get_keys(mgos_bvar_t dic);
 mgos_bvarc_enum_t mgos_bvarc_get_keys(mgos_bvarc_t dic);
 
-bool mgos_bvar_merge(mgos_bvarc_t src_var, mgos_bvar_t dest_var);
-
 mgos_bvarc_t mgos_bvarc_get_key(mgos_bvarc_t dic, const char *key_name);
 bool mgos_bvarc_try_get_key(mgos_bvarc_t dic, const char *key_name, mgos_bvarc_t *key_value);
 bool mgos_bvarc_get_next_key(mgos_bvarc_enum_t *key_enum, mgos_bvarc_t *key_value, const char **key_name);

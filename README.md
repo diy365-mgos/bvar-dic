@@ -38,9 +38,10 @@ mgos_bvar_add_key(dic, "Name", mgos_bvar_new_str("Mark"));
 A dictionary inherits following APIs defined in [bVariant library](https://github.com/diy365-mgos/bvar).
 - [mgos_bvar_get_type()](https://github.com/diy365-mgos/bvar#mgos_bvar_get_type)
 - [mgos_bvar_set_null()](https://github.com/diy365-mgos/bvar#mgos_bvar_set_null)
-- [mgos_bvar_cmp()](https://github.com/diy365-mgos/bvar#mgos_bvar_cmp)
 - [mgos_bvar_is_null()](https://github.com/diy365-mgos/bvar#mgos_bvar_is_null)
+- [mgos_bvar_cmp()](https://github.com/diy365-mgos/bvar#mgos_bvar_cmp)
 - [mgos_bvar_copy()](https://github.com/diy365-mgos/bvar#mgos_bvar_copy)
+- [mgos_bvar_merge()](https://github.com/diy365-mgos/bvar#mgos_bvar_merge)
 - [mgos_bvar_length()](https://github.com/diy365-mgos/bvar#mgos_bvar_length)
 - [mgos_bvar_set_unchanged()](https://github.com/diy365-mgos/bvar#mgos_bvar_set_unchanged)
 - [mgos_bvar_is_changed()](https://github.com/diy365-mgos/bvar#mgos_bvar_is_changed)
@@ -203,15 +204,5 @@ Adds the key to a dictionary. Returns `true` if successfully added, or `false` o
 |dic|A dictionary.|
 |key_name|The name of the key to add.|
 |key_value|The key value.|
-### mgos_bvar_merge
-```c
-bool mgos_bvar_merge(mgos_bvarc_t src_var, mgos_bvar_t dest_var);
-```
-Merges a source dictionary into the destination one. Returns `true` if merged successfully, or `false` otherwise. If the source *bVariant* is not a dictionary it is just copied into the destination *bVariant*, like `mgos_bvar_copy()` does. (more details [here](https://github.com/diy365-mgos/bvar#mgos_bvar_copy)). 
-
-|Parameter||
-|--|--|
-|src_var|A source *bVariant*.|
-|dest_var|A destination *bVariant*.|
 ## To Do
 - Implement javascript APIs for [Mongoose OS MJS](https://github.com/mongoose-os-libs/mjs).
