@@ -110,8 +110,9 @@ Gets the next key value iterating dictionary keys. Returns `false` if the end of
 |keys_enum|A reference to a keys enumerator returned by `mgos_bvar_get_keys()`.|
 |key_value|The output key value. Optional, if `NULL` no key value is returned as output.|
 |key_name|The output key name. Optional, if `NULL` no key name is returned as output.|
+
+Example - Iterating dictionary keys:
 ```c
-// Example - Iterating dictionary keys
 mgos_bvar_t key_value;
 const char *key_name;
 mgos_bvar_enum_t keys_enum = mgos_bvar_get_keys(dic);
@@ -139,8 +140,9 @@ Gets the next key value iterating readonly dictionary keys. Returns `false` if t
 |keys_enum|A reference to a readonly keys enumerator returned by `mgos_bvarc_get_keys()`.|
 |key_value|The output readonly key value. Optional, if `NULL` no key value is returned as output.|
 |key_name|The output key name. Optional, if `NULL` no key name is returned as output.|
+
+Example - Iterating readonly dictionary keys:
 ```c
-// Example - Iterating readonly dictionary keys
 mgos_bvarc_t key_value;
 const char *key_name;
 mgos_bvarc_enum_t keys_enum = mgos_bvarc_get_keys(var);
