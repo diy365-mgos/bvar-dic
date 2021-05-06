@@ -3,7 +3,7 @@ type: lib
 description: This Mongoose OS library allows you to create and manipulate variant dictionaries.
 version: 1.0
 
-build_vars:
+cdefs:
   MGOS_BVAR_HAVE_DIC: 1
 
 includes:
