@@ -35,7 +35,7 @@ mgos_bvar_add_key(dic, "Name", mgos_bvar_new_str("Mark"));
 ```
 ## C/C++ APIs Reference
 ### Inherited APIs
-A dictionary inherits following APIs defined in [bVariant library](https://github.com/diy365-mgos/bvar).
+A dictionary inherits following [bVariant](https://github.com/diy365-mgos/bvar) APIs:
 - [mgos_bvar_get_type()](https://github.com/diy365-mgos/bvar#mgos_bvar_get_type)
 - [mgos_bvar_set_null()](https://github.com/diy365-mgos/bvar#mgos_bvar_set_null)
 - [mgos_bvar_is_null()](https://github.com/diy365-mgos/bvar#mgos_bvar_is_null)
