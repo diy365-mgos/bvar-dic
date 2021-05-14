@@ -47,7 +47,7 @@ A dictionary inherits following [bVariant](https://github.com/diy365-mgos/bvar) 
 - [mgos_bvar_is_changed()](https://github.com/diy365-mgos/bvar#mgos_bvar_is_changed)
 - [mgos_bvar_free()](https://github.com/diy365-mgos/bvar#mgos_bvar_free)
 
-In addition, there are dictionary-designed functions.
+In addition, there are the following dictionary-designed APIs.
 ### mgos_bvar_new_dic
 ```c
 mgos_bvar_t mgos_bvar_new_dic();
