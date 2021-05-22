@@ -1,6 +1,6 @@
-# bVariant Dictionary Library
+# bVariantDictionaries Library
 ## Overview
-This Mongoose OS library allows you to create and manipulate dictionaries adding or removing keys, easily, like you do in javascript. It extends the [bVariant library](https://github.com/diy365-mgos/bvar).
+This Mongoose OS library allows you to create and manipulate bVariantDictionaries adding or removing keys, easily, like you do in javascript. It extends the [bVariant library](https://github.com/diy365-mgos/bvar).
 ## Features
 - **Dynamic size** - You can add or remove keys with no limits.
 - **Dynamic data-type keys** - Key values haven't data type declared explicitly, but any of supported by [bVariant library](https://github.com/diy365-mgos/bvar).
@@ -13,27 +13,27 @@ Include the library in your `mos.yml` file.
 libs:
   - origin: https://github.com/diy365-mgos/bvar-dic
 ```
-#### Example 1 - Create an empty dictionary explicitly
+#### Example 1 - Create an empty bVariantDictionary explicitly
 ```c
 #include "mgos_bvar_dic.h"
 
 mgos_bvar_t dic = mgos_bvar_new_dic();
 ```
-#### Example 2 - Create a dictionary implicitly
+#### Example 2 - Create a bVariantDictionary implicitly
 ```c
 #include "mgos_bvar_dic.h"
 
-// Example #1 - Dictionary from a type-less(NULL) bVariant
+// Example #1 - bVariantDictionary from a type-less(NULL) bVariant
 mgos_bvar_t dic = mgos_bvar_new();
 mgos_bvar_add_key(dic, "Name", mgos_bvar_new_str("Mark"));
 
-// Example #2 - Dictionary from an integer bVariant 
+// Example #2 - bVariantDictionary from an integer bVariant 
 mgos_bvar_t dic = mgos_bvar_new_integer(10);
 mgos_bvar_add_key(dic, "Name", mgos_bvar_new_str("Mark"));
 ```
 ## C/C++ APIs Reference
 ### Inherited bVariant APIs
-A dictionary inherits following [bVariant](https://github.com/diy365-mgos/bvar) APIs:
+A bVariantDictionary inherits following [bVariant](https://github.com/diy365-mgos/bvar) APIs:
 - [mgos_bvar_get_type()](https://github.com/diy365-mgos/bvar#mgos_bvar_get_type)
 - [mgos_bvar_set_null()](https://github.com/diy365-mgos/bvar#mgos_bvar_set_null)
 - [mgos_bvar_is_null()](https://github.com/diy365-mgos/bvar#mgos_bvar_is_null)
@@ -50,12 +50,12 @@ In addition, there are the following dictionary-designed APIs.
 ```c
 mgos_bvar_t mgos_bvar_new_dic();
 ```
-Creates an empty dictionary. Returns `NULL` if error. The returned dictionary must be deallocated using `mgos_bvar_free()` (more details [here](https://github.com/diy365-mgos/bvar#mgos_bvar_free)).
+Creates an empty bVariantDictionary. Returns `NULL` if error. The returned dictionary must be deallocated using `mgos_bvar_free()` (more details [here](https://github.com/diy365-mgos/bvar#mgos_bvar_free)).
 ### mgos_bvar_is_dic
 ```c
 bool mgos_bvar_is_dic(mgos_bvarc_t var);
 ```
-Returns `true` if the bVariant is a dictionary, or `false` otherwise.
+Returns `true` if the bVariant is a bVariantDictionary, or `false` otherwise.
 
 |Parameter||
 |--|--|
@@ -64,45 +64,45 @@ Returns `true` if the bVariant is a dictionary, or `false` otherwise.
 ```c
 void mgos_bvar_remove_keys(mgos_bvar_t dic);
 ```
-Removes all keys from the dictionary. Removed keys are also automatically deallocated.
+Removes all keys from the bVariantDictionary. Removed keys are also automatically deallocated.
 
 |Parameter||
 |--|--|
-|dic|A dictionary.|
+|dic|A bVariantDictionary.|
 ### mgos_bvar_remove_key
 ```c
 void mgos_bvar_remove_key(mgos_bvar_t dic, const char *key_name);
 ```
-Removes the specified key from the dictionary. Removed key is also automatically deallocated.
+Removes the specified key from the bVariantDictionary. Removed key is also automatically deallocated.
 
 |Parameter||
 |--|--|
-|dic|A dictionary.|
+|dic|A bVariantDictionary.|
 |key_name|The name of the key to remove.|
 ### mgos_bvar_has_key
 ```c
 bool mgos_bvar_has_key(mgos_bvarc_t dic, const char *key_name);
 ```
-Returns `true` if the dictionary contains the key, or `false` otherwise.
+Returns `true` if the bVariantDictionary contains the key, or `false` otherwise.
 
 |Parameter||
 |--|--|
-|dic|A dictionary.|
+|dic|A bVariantDictionary.|
 |key_name|The key name.|
 ### mgos_bvar_get_keys
 ```c
 mgos_bvar_enum_t mgos_bvar_get_keys(mgos_bvar_t dic);
 ```
-Returns the keys enumerator of a dictionary, or `NULL` if error. The enumerator can be used with `mgos_bvar_get_next_key()`.
+Returns the keys enumerator of a bVariantDictionary, or `NULL` if error. The enumerator can be used with `mgos_bvar_get_next_key()`.
 
 |Parameter||
 |--|--|
-|dic|A dictionary.|
+|dic|A bVariantDictionary.|
 ### mgos_bvar_get_next_key
 ```c
 bool mgos_bvar_get_next_key(mgos_bvar_enum_t *keys_enum, mgos_bvar_t *key_value, const char **key_name);
 ```
-Gets the next key value iterating dictionary keys. Returns `false` if the end of the enumerator is reached, or `true` otherwise.
+Gets the next key value iterating bVariantDictionary keys. Returns `false` if the end of the enumerator is reached, or `true` otherwise.
 
 |Parameter||
 |--|--|
@@ -110,29 +110,29 @@ Gets the next key value iterating dictionary keys. Returns `false` if the end of
 |key_value|The output key value. Optional, if `NULL` no key value is returned as output.|
 |key_name|The output key name. Optional, if `NULL` no key name is returned as output.|
 
-Example - Iterating dictionary keys:
+Example - Iterating bVariantDictionary keys:
 ```c
 mgos_bvar_t key_value;
 const char *key_name;
 mgos_bvar_enum_t keys_enum = mgos_bvar_get_keys(dic);
 while (mgos_bvar_get_next_key(&keys_enum, &key_value, &key_name)) {
-  printf("Key '%s' of type %d found in dictionary.", key_name, mgos_bvar_get_type(key_value));
+  printf("Key '%s' of type %d found in bVariantDictionary.", key_name, mgos_bvar_get_type(key_value));
 }
 ```
 ### mgos_bvarc_get_keys
 ```c
 mgos_bvarc_enum_t mgos_bvarc_get_keys(mgos_bvarc_t dic);
 ```
-Returns the keys enumerator of a readonly dictionary, or `NULL` if error. The enumerator can be used with `mgos_bvarc_get_next_key()`.
+Returns the keys enumerator of a readonly bVariantDictionary, or `NULL` if error. The enumerator can be used with `mgos_bvarc_get_next_key()`.
 
 |Parameter||
 |--|--|
-|dic|A readonly dictionary.|
+|dic|A readonly bVariantDictionary.|
 ### mgos_bvarc_get_next_key
 ```c
 bool mgos_bvarc_get_next_key(mgos_bvarc_enum_t *keys_enum, mgos_bvarc_t *key_value, const char **key_name);
 ```
-Gets the next key value iterating readonly dictionary keys. Returns `false` if the end of the enumerator is reached, or `true` otherwise. The retrieved key value is readonly.
+Gets the next key value iterating readonly bVariantDictionary keys. Returns `false` if the end of the enumerator is reached, or `true` otherwise. The retrieved key value is readonly.
 
 |Parameter||
 |--|--|
@@ -140,7 +140,7 @@ Gets the next key value iterating readonly dictionary keys. Returns `false` if t
 |key_value|The output readonly key value. Optional, if `NULL` no key value is returned as output.|
 |key_name|The output key name. Optional, if `NULL` no key name is returned as output.|
 
-Example - Iterating readonly dictionary keys:
+Example - Iterating readonly bVariantDictionary keys:
 ```c
 mgos_bvarc_t key_value;
 const char *key_name;
@@ -153,53 +153,53 @@ while (mgos_bvarc_get_next_key(&keys_enum, &key_value, &key_name)) {
 ```c
 mgos_bvar_t mgos_bvar_get_key(mgos_bvar_t dir, const char *key_name);;
 ```
-Returns the key value of a dictionary, or `NULL` if the key doesn't exist.
+Returns the key value of a bVariantDictionary, or `NULL` if the key doesn't exist.
 
 |Parameter||
 |--|--|
-|dic|A dictionary.|
+|dic|A bVariantDictionary.|
 |key_name|The name of the key to return.|
 ### mgos_bvarc_get_key
 ```c
 mgos_bvarc_t mgos_bvarc_get_key(mgos_bvarc_t dic, const char *key_name);
 ```
-Returns the key value of a readonly dictionary, or `NULL` if the key doesn't exist. The returned value is readonly.
+Returns the key value of a readonly bVariantDictionary, or `NULL` if the key doesn't exist. The returned value is readonly.
 
 |Parameter||
 |--|--|
-|dic|A dictionary.|
+|dic|A bVariantDictionary.|
 |key_name|The name of the key to return.|
 ### mgos_bvar_try_get_key
 ```c
 bool mgos_bvar_try_get_key(mgos_bvar_t dic, const char *key_name, mgos_bvar_t *key_value);
 ```
-Try to get the key value of a dictionary. Returns `true` if the key exists, or `false` otherwise.
+Try to get the key value of a bVariantDictionary. Returns `true` if the key exists, or `false` otherwise.
 
 |Parameter||
 |--|--|
-|dic|A dictionary.|
+|dic|A bVariantDictionary.|
 |key_name|The output key name. Optional, if `NULL` no key name is returned.|
 |key_value|The output key value. Optional, if `NULL` no key value is returned.|
 ### mgos_bvarc_try_get_key
 ```c
 bool mgos_bvarc_try_get_key(mgos_bvarc_t dic, const char *key_name, mgos_bvarc_t *key_value);
 ```
-Try to get the key value of a readonly dictionary. Returns `true` if the key exists, or `false` otherwise. The retrieved key value is readonly.
+Try to get the key value of a readonly bVariantDictionary. Returns `true` if the key exists, or `false` otherwise. The retrieved key value is readonly.
 
 |Parameter||
 |--|--|
-|dic|A dictionary.|
+|dic|A bVariantDictionary.|
 |key_name|The output key name. Optional, if `NULL` no key name is returned as output.|
 |key_value|The output readonly key value. Optional, if `NULL` no key value is returned as output.|
 ### mgos_bvar_add_key
 ```c
 bool mgos_bvar_add_key(mgos_bvar_t dic, const char *key_name, mgos_bvar_t key_value);
 ```
-Adds the key to a dictionary. Returns `true` if successfully added, or `false` otherwise.
+Adds the key to a bVariantDictionary. Returns `true` if successfully added, or `false` otherwise.
 
 |Parameter||
 |--|--|
-|dic|A dictionary.|
+|dic|A bVariantDictionary.|
 |key_name|The name of the key to add.|
 |key_value|The key value.|
 ## To Do
