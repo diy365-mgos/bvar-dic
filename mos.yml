@@ -1,6 +1,6 @@
 author: DIY365
 type: lib
-description: This Mongoose OS library allows you to create and manipulate variant dictionaries.
+description: This Mongoose OS library allows you to create and manipulate bVariantDictionaries.
 version: 1.0
 
 cdefs:
