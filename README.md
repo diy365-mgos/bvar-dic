@@ -7,21 +7,19 @@ This Mongoose OS library allows you to create and manipulate dictionaries adding
 - **Nested keys** - A dictionary's key value can be a dictionary, recursively, with no depth limits. 
 - **JSON support** - You can dynamically create a dictionary from a JSON string or you can save it as JSON in a very easy way. Just include the [bVariant JSON library](https://github.com/diy365-mgos/bvar-json) in your project. 
 
-## Get Started
+## Get Started in C/C++
 Include the library in your `mos.yml` file.
 ```yaml
 libs:
   - origin: https://github.com/diy365-mgos/bvar-dic
 ```
-**C/C++ sample code**
-
-Create an empty dictionary explicitly.
+#### Example 1 - Create an empty dictionary explicitly
 ```c
 #include "mgos_bvar_dic.h"
 
 mgos_bvar_t dic = mgos_bvar_new_dic();
 ```
-Otherwise, create a dictionary implicitly just adding one key to a *bVariant*.
+#### Example 2 - Create a dictionary implicitly
 ```c
 #include "mgos_bvar_dic.h"
 
@@ -34,7 +32,7 @@ mgos_bvar_t dic = mgos_bvar_new_integer(10);
 mgos_bvar_add_key(dic, "Name", mgos_bvar_new_str("Mark"));
 ```
 ## C/C++ APIs Reference
-### Inherited *bVariant* APIs
+### Inherited bVariant APIs
 A dictionary inherits following [bVariant](https://github.com/diy365-mgos/bvar) APIs:
 - [mgos_bvar_get_type()](https://github.com/diy365-mgos/bvar#mgos_bvar_get_type)
 - [mgos_bvar_set_null()](https://github.com/diy365-mgos/bvar#mgos_bvar_set_null)
@@ -57,11 +55,11 @@ Creates an empty dictionary. Returns `NULL` if error. The returned dictionary mu
 ```c
 bool mgos_bvar_is_dic(mgos_bvarc_t var);
 ```
-Returns `true` if the *bVariant* is a dictionary, or `false` otherwise.
+Returns `true` if the bVariant is a dictionary, or `false` otherwise.
 
 |Parameter||
 |--|--|
-|var|A *bVariant*.|
+|var|A bVariant.|
 ### mgos_bvar_remove_keys
 ```c
 void mgos_bvar_remove_keys(mgos_bvar_t dic);
