@@ -62,23 +62,25 @@ Returns `true` if the bVariant is a bVariantDictionary, or `false` otherwise.
 |var|A bVariant.|
 ### mgos_bvar_remove_keys
 ```c
-void mgos_bvar_remove_keys(mgos_bvar_t dic);
+void mgos_bvar_remove_keys(mgos_bvar_t dic, bool dispose);
 ```
-Removes all keys from the bVariantDictionary. Removed keys are also automatically deallocated.
+Removes all keys from the bVariantDictionary. If the `dispose` parameter is `true`, keys are automatically deallocated.
 
 |Parameter||
 |--|--|
 |dic|A bVariantDictionary.|
+|dispose|The dispose flag.|
 ### mgos_bvar_remove_key
 ```c
-void mgos_bvar_remove_key(mgos_bvar_t dic, const char *key_name);
+mgos_bvar_t mgos_bvar_remove_key(mgos_bvar_t dic, const char *key_name, bool dispose);
 ```
-Removes the specified key from the bVariantDictionary. Removed key is also automatically deallocated.
+Removes the specified key from the bVariantDictionary. If the `dispose` parameter is `true`, the key is automatically deallocated. Returns the removed key value or `NULL` if the value has been automatically disposed.
 
 |Parameter||
 |--|--|
 |dic|A bVariantDictionary.|
 |key_name|The name of the key to remove.|
+|dispose|The dispose flag.|
 ### mgos_bvar_has_key
 ```c
 bool mgos_bvar_has_key(mgos_bvarc_t dic, const char *key_name);
