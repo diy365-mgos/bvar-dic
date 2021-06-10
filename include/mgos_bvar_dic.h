@@ -39,8 +39,8 @@ mgos_bvar_t mgos_bvar_new_dic();
 
 bool mgos_bvar_is_dic(mgos_bvarc_t var);
 
-void mgos_bvar_remove_keys(mgos_bvar_t dic);
-void mgos_bvar_remove_key(mgos_bvar_t dic, const char *key_name);
+void mgos_bvar_remove_keys(mgos_bvar_t var, bool dispose);
+mgos_bvar_t mgos_bvar_remove_key(mgos_bvar_t var, const char *key, bool dispose);
 bool mgos_bvar_has_key(mgos_bvarc_t dic, const char *key_name);
 
 mgos_bvar_enum_t mgos_bvar_get_keys(mgos_bvar_t dic);
