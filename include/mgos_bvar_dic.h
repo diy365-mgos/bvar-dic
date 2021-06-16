@@ -32,8 +32,8 @@ extern "C" {
 
 #define MGOS_BVAR_TYPE_DIC 1
 
-typedef struct mgos_bVariant *mgos_bvar_enum_t;
-typedef const struct mgos_bVariant *mgos_bvarc_enum_t;
+typedef void *mgos_bvar_enum_t;
+typedef void *mgos_bvarc_enum_t;
 
 mgos_bvar_t mgos_bvar_new_dic();
 
