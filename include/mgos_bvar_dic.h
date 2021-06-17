@@ -39,8 +39,13 @@ mgos_bvar_t mgos_bvar_new_dic();
 
 bool mgos_bvar_is_dic(mgos_bvarc_t var);
 
-void mgos_bvar_remove_keys(mgos_bvar_t var, bool dispose);
-mgos_bvar_t mgos_bvar_remove_key(mgos_bvar_t var, const char *key, bool dispose);
+/* Removes all keys without disposing them (see mgos_bvar_clear() if you want to remove and dispose) */
+void mgos_bvar_remove_keys(mgos_bvar_t var);
+/* Removes the key without disposing it (see mgos_bvar_delete_key() if you want to remove and dispose) */
+mgos_bvar_t mgos_bvar_remove_key(mgos_bvar_t var, const char *key);
+/* Removes and disposes the key (see mgos_bvar_remove_key() if you do not want to dispose) */
+void mgos_bvar_delete_key(mgos_bvar_t var, const char *key);
+
 bool mgos_bvar_has_key(mgos_bvarc_t dic, const char *key_name);
 
 mgos_bvar_enum_t mgos_bvar_get_keys(mgos_bvar_t dic);
@@ -55,6 +60,7 @@ bool mgos_bvar_try_get_key(mgos_bvar_t dic, const char *key_name, mgos_bvar_t *k
 bool mgos_bvar_get_next_key(mgos_bvar_enum_t *key_enum, mgos_bvar_t *key_value, const char **key_name);
 
 bool mgos_bvar_add_key(mgos_bvar_t dic, const char *key_name, mgos_bvar_t key_value);
+bool mgos_bvar_set_key(mgos_bvar_t dic, const char *key_name, mgos_bvar_t key_value);
 
 #ifdef __cplusplus
 }
