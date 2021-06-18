@@ -43,6 +43,7 @@ A bVariantDictionary inherits following [bVariant](https://github.com/diy365-mgo
 - [mgos_bvar_length()](https://github.com/diy365-mgos/bvar#mgos_bvar_length)
 - [mgos_bvar_set_unchanged()](https://github.com/diy365-mgos/bvar#mgos_bvar_set_unchanged)
 - [mgos_bvar_is_changed()](https://github.com/diy365-mgos/bvar#mgos_bvar_is_changed)
+- [mgos_bvar_clear()](https://github.com/diy365-mgos/bvar#mgos_bvar_clear)
 - [mgos_bvar_free()](https://github.com/diy365-mgos/bvar#mgos_bvar_free)
 
 In addition, there are the following dictionary-designed APIs.
@@ -62,25 +63,33 @@ Returns `true` if the bVariant is a bVariantDictionary, or `false` otherwise.
 |var|A bVariant.|
 ### mgos_bvar_remove_keys
 ```c
-void mgos_bvar_remove_keys(mgos_bvar_t dic, bool dispose);
+void mgos_bvar_remove_keys(mgos_bvar_t dic);
 ```
-Removes all keys from the bVariantDictionary. If the `dispose` parameter is `true`, keys are automatically deallocated.
+Removes all keys without disposing them. If you want to dispose keys as well, use [mgos_bvar_clear()](https://github.com/diy365-mgos/bvar#mgos_bvar_clear) instead.
 
 |Parameter||
 |--|--|
 |dic|A bVariantDictionary.|
-|dispose|The dispose flag.|
 ### mgos_bvar_remove_key
 ```c
-mgos_bvar_t mgos_bvar_remove_key(mgos_bvar_t dic, const char *key_name, bool dispose);
+mgos_bvar_t mgos_bvar_remove_key(mgos_bvar_t dic, const char *key_name);
 ```
-Removes the specified key from the bVariantDictionary. If the `dispose` parameter is `true`, the key is automatically deallocated. Returns the removed key value or `NULL` if the value has been automatically disposed.
+Removes the specified key without disposing it. If you want to dispose the key as well, use `mgos_bvar_delete_key()` instead. Returns the removed bVariant or `NULL` if the dictionary hasn't that key.
 
 |Parameter||
 |--|--|
 |dic|A bVariantDictionary.|
 |key_name|The name of the key to remove.|
-|dispose|The dispose flag.|
+### mgos_bvar_delete_key
+```c
+void mgos_bvar_remove_key(mgos_bvar_t dic, const char *key_name);
+```
+Removes and disposes the specified key. If you do not want to dispose the key, use `mgos_bvar_remove_key()` instead.
+
+|Parameter||
+|--|--|
+|dic|A bVariantDictionary.|
+|key_name|The name of the key to remove and dispose.|
 ### mgos_bvar_has_key
 ```c
 bool mgos_bvar_has_key(mgos_bvarc_t dic, const char *key_name);
