@@ -51,7 +51,7 @@ In addition, there are the following dictionary-designed APIs.
 ```c
 mgos_bvar_t mgos_bvar_new_dic();
 ```
-Creates an empty bVariantDictionary. Returns `NULL` if error. The returned dictionary must be deallocated using `mgos_bvar_free()` (more details [here](https://github.com/diy365-mgos/bvar#mgos_bvar_free)).
+Creates an empty bVariantDictionary. Returns `NULL` if error. The returned dictionary must be deallocated using [mgos_bvar_free()](https://github.com/diy365-mgos/bvar#mgos_bvar_free).
 ### mgos_bvar_is_dic
 ```c
 bool mgos_bvar_is_dic(mgos_bvarc_t var);
