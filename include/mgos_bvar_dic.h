@@ -60,7 +60,6 @@ bool mgos_bvar_try_get_key(mgos_bvar_t dic, const char *key_name, mgos_bvar_t *k
 bool mgos_bvar_get_next_key(mgos_bvar_enum_t *key_enum, mgos_bvar_t *key_value, const char **key_name);
 
 bool mgos_bvar_add_key(mgos_bvar_t dic, const char *key_name, mgos_bvar_t key_value);
-bool mgos_bvar_set_key(mgos_bvar_t dic, const char *key_name, mgos_bvar_t key_value);
 
 #ifdef __cplusplus
 }
