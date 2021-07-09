@@ -3,6 +3,7 @@
 This Mongoose OS library allows you to create and manipulate bVariantDictionaries adding or removing keys, easily, like you do in javascript. It extends the [bVariant library](https://github.com/diy365-mgos/bvar).
 ## Features
 - **Dynamic size** - You can add or remove keys with no limits.
+- **Optimized memory allocation** - The library inherits the [bVariant library](https://github.com/diy365-mgos/bvar) optimized memory allocation. In addition, blocks of 8 dictionary's items are automatically allocated and disposed to prevent memory fragmentation.
 - **Dynamic data-type keys** - Key values haven't data type declared explicitly, but any of supported by [bVariant library](https://github.com/diy365-mgos/bvar).
 - **Nested keys** - A dictionary's key value can be a dictionary, recursively, with no depth limits. 
 - **JSON support** - You can dynamically create a dictionary from a JSON string or you can save it as JSON in a very easy way. Just include the [bVariant JSON library](https://github.com/diy365-mgos/bvar-json) in your project. 
