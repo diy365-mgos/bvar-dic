@@ -61,11 +61,11 @@ bool mgos_bvar_get_next_key(mgos_bvar_enum_t *key_enum, mgos_bvar_t *key_value, 
 
 bool mgos_bvar_add_key(mgos_bvar_t dic, const char *key_name, mgos_bvar_t key_value);
 
-mgos_bvar_t mgos_bvar_set_key(mgos_bvar_t dic, const char *key_name);
 mgos_bvar_t mgos_bvar_set_key_integer(mgos_bvar_t dic, const char *key_name, long key_value);
 mgos_bvar_t mgos_bvar_set_key_bool(mgos_bvar_t dic, const char *key_name, bool key_value);
 mgos_bvar_t mgos_bvar_set_key_decimal(mgos_bvar_t dic, const char *key_name, double key_value);
 mgos_bvar_t mgos_bvar_set_key_str(mgos_bvar_t dic, const char *key_name, const char *key_value);
+mgos_bvar_t mgos_bvar_set_key_nstr(mgos_bvar_t dic, const char *key_name, const char *key_value, size_t value_len);
 
 #ifdef __cplusplus
 }
