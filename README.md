@@ -214,5 +214,60 @@ Adds the key to a bVariantDictionary. Returns `true` if successfully added, or `
 |dic|A bVariantDictionary.|
 |key_name|The name of the key to add.|
 |key_value|The key value.|
+### mgos_bvar_set_key_integer
+```c
+mgos_bvar_t mgos_bvar_set_key_integer(mgos_bvar_t dic, const char *key_name, long key_value);
+```
+Adds or sets the key's integer value. Returns the bVariant value or `NULL` if error.
+
+|Parameter||
+|--|--|
+|dic|A bVariantDictionary.|
+|key_name|The name of the key to add/set.|
+|key_value|The key value.|
+### mgos_bvar_set_key_bool
+```c
+mgos_bvar_t mgos_bvar_set_key_bool(mgos_bvar_t dic, const char *key_name, bool key_value);
+```
+Adds or sets the key's boolean value. Returns the bVariant value or `NULL` if error.
+
+|Parameter||
+|--|--|
+|dic|A bVariantDictionary.|
+|key_name|The name of the key to add/set.|
+|key_value|The key value.|
+### mgos_bvar_set_key_decimal
+```c
+mgos_bvar_t mgos_bvar_set_key_decimal(mgos_bvar_t dic, const char *key_name, double key_value);
+```
+Adds or sets the key's decimal value. Returns the bVariant value or `NULL` if error.
+
+|Parameter||
+|--|--|
+|dic|A bVariantDictionary.|
+|key_name|The name of the key to add/set.|
+|key_value|The key value.|
+### mgos_bvar_set_key_str
+```c
+mgos_bvar_t mgos_bvar_set_key_str(mgos_bvar_t dic, const char *key_name, const char *key_value);
+```
+Adds or sets the key's string value. Returns the bVariant value or `NULL` if error.
+
+|Parameter||
+|--|--|
+|dic|A bVariantDictionary.|
+|key_name|The name of the key to add/set.|
+|key_value|The key value.|
+### mgos_bvar_set_key_nstr
+```c
+mgos_bvar_t mgos_bvar_set_key_nstr(mgos_bvar_t dic, const char *key_name, const char *key_value, size_t value_len);
+```
+Adds or sets the key's string value. Returns the bVariant value or `NULL` if error.
+
+|Parameter||
+|--|--|
+|dic|A bVariantDictionary.|
+|key_name|The name of the key to add/set.|
+|key_value|The key value.|
 ## To Do
 - Implement javascript APIs for [Mongoose OS MJS](https://github.com/mongoose-os-libs/mjs).
